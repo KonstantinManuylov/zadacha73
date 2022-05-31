@@ -21,8 +21,24 @@
 */
 
 int baseNumber = EnterData("Введите число N: ");
+int groupNumber = 1;
 
 
+int SortNumber (int n)
+{
+    Console.WriteLine($"Группа {groupNumber}: ");
+    for (int i = 1; i < n; i++)
+    {
+        for (int j = i + 1; j < n; j++)
+        {
+            if (j % i != 0);
+            {
+                Console.Write($"{i}");
+            }
+        }
+    }
+    groupNumber++;
+}
 
 int EnterData(string text)
 {
