@@ -34,27 +34,16 @@ while (countNumbers < baseNumber)
     {
         for (int j = 0; j < array.Length; j++)
         {
-            if (array[i] == 1)
+            if (tempArray[j] % array[i] != 0 && tempArray[j] != -1)
             {
-                Console.Write(array[i] + " ");
+                Console.Write(tempArray[j] + " ");
+                tempArray[j] = -1;
             }
-            else if (tempArray[j] % array[i] != 0)
-            {
-                for (int k = i; k > 0; k--)
-                {
-                    if (tempArray[j] % array[k] != 0)
-                    {
-                        Console.Write(tempArray[j] + " ");
-                    }
-                }
-            }
+            countNumbers++;
         }
     }
-    countNumbers++;
     groupNumber++;
 }
-
-
 
 void FillArray(int[] array)
 {
