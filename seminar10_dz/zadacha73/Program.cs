@@ -21,24 +21,59 @@
 */
 
 int baseNumber = EnterData("Введите число N: ");
+int[] array = new int[baseNumber];
 int groupNumber = 1;
+int countNumbers = 0;
+FillArray(array);
+int[] tempArray = array;
 
-
-int SortNumber (int n)
+while (countNumbers < baseNumber)
 {
     Console.WriteLine($"Группа {groupNumber}: ");
-    for (int i = 1; i < n; i++)
+    for (int i = 0; i < array.Length; i++)
     {
-        for (int j = i + 1; j < n; j++)
+        for (int j = 0; j < array.Length; j++)
         {
-            if (j % i != 0);
+            if (array[i] == 1)
             {
-                Console.Write($"{i}");
+                Console.Write(array[i] + " ");
+            }
+            else if (tempArray[j] % array[i] != 0)
+            {
+                for (int k = i; k > 0; k--)
+                {
+                    if (tempArray[j] % array[k] != 0)
+                    {
+                        Console.Write(tempArray[j] + " ");
+                    }
+                }
             }
         }
     }
+    countNumbers++;
     groupNumber++;
 }
+
+
+
+void FillArray(int[] array)
+{
+    int num = 1;
+    for (int i = 0; i < array.Length; i++)
+    {
+        array[i] = num;
+        num++;
+    }
+}
+
+/* void PrintArray(int[] array)
+{
+    for (int i = 0; i < array.Length; i++)
+    {
+        Console.Write(array[i] + " ");
+    }
+    Console.WriteLine();
+} */
 
 int EnterData(string text)
 {
