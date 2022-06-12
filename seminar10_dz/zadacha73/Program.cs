@@ -29,6 +29,10 @@ while (count < baseNumber)
     Console.WriteLine($"Группа {groupNumber}: ");
     for (int i = 1; i < baseNumber; i++)
     {
+        for (int j = count; j > 1; j--)
+        {
+            
+        }
         if (i == 1)
         {
             Console.Write(i + " ");
