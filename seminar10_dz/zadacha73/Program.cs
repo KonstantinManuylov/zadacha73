@@ -21,48 +21,35 @@
 */
 
 int baseNumber = EnterData("Введите число N: ");
-int[] array = new int[baseNumber];
+int count = 1;
 int groupNumber = 1;
-int countNumbers = 0;
-FillArray(array);
-int[] tempArray = array;
 
-while (countNumbers < baseNumber)
+while (count < baseNumber)
 {
     Console.WriteLine($"Группа {groupNumber}: ");
-    for (int i = 0; i < array.Length; i++)
+    for (int i = 1; i < baseNumber; i++)
     {
-        for (int j = 0; j < array.Length; j++)
+        if (i == 1)
         {
-            if (tempArray[j] % array[i] != 0 && tempArray[j] != -1)
-            {
-                Console.Write(tempArray[j] + " ");
-                tempArray[j] = -1;
-            }
-            countNumbers++;
+            Console.Write(i + " ");
+            count++;
+            continue;
+        }
+        else if (i != 1 && Divisibility(i, 2) && Divisibility(i, 3))
+        {
+            Console.Write(i + " ");
+            count++;
         }
     }
+    Console.WriteLine();
     groupNumber++;
 }
 
-void FillArray(int[] array)
+bool Divisibility(int n, int m)
 {
-    int num = 1;
-    for (int i = 0; i < array.Length; i++)
-    {
-        array[i] = num;
-        num++;
-    }
+    if (n % m != 0) return true;
+    else return false;
 }
-
-/* void PrintArray(int[] array)
-{
-    for (int i = 0; i < array.Length; i++)
-    {
-        Console.Write(array[i] + " ");
-    }
-    Console.WriteLine();
-} */
 
 int EnterData(string text)
 {
